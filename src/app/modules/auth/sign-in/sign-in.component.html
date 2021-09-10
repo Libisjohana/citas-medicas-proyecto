@@ -1,0 +1,79 @@
+<div class="bg-gray-200 w-full min-h-screen pt-16">
+
+    <mat-card class="w-4/12 mx-auto">
+        <mat-card-header>
+            <div class="w-8/12 order-first">
+                <mat-card-title class="text-3xl font-bold">Inicio de Sesión</mat-card-title>
+                <mat-card-subtitle 
+                    class="text-sm my-2 font-medium"
+                >
+                    No tiene cuenta? <a routerLink="../sign-up" class="text-blue-500">Registrese aquí</a> 
+                </mat-card-subtitle>
+            </div>
+            <div class="logo-box w-4/12">
+                <img src="assets/images/logo.jpeg" alt="" class="w-full">
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <form 
+                class="w-full p-4 flex flex-col justify-between items-start gap-4" 
+                [formGroup]="loginForm"
+                (ngSubmit)="ngSubmit( $event )"
+            >
+                <div class="field w-11/12 flex flex-col justify-between items-start">
+                    <label 
+                        for="correo"
+                        class="font-medium"
+                    >
+                        Correo Electronico
+                    </label>
+                    <input 
+                        type="email"
+                        class="w-full h-10 border-2 border-solid border-blue-500 pl-4 my-2 text-sm outline-none"
+                        placeholder="example@correo.com"
+                        formControlName='correo'
+                        name="correo"
+                        id="correo"
+                    >
+                </div>
+    
+                <div class="field w-11/12 flex flex-col justify-between items-start">
+                    <label 
+                        for="contrasena"
+                        class="font-medium"
+                    >
+                        Contraseña
+                    </label>
+                    <input 
+                        type="password"
+                        class="w-full h-10 border-2 border-solid border-blue-500 pl-4 my-2 text-sm outline-none"
+                        placeholder="************"
+                        formControlName='contrasena'
+                        name="contrasena"
+                        id="contrasena"
+                    >
+                </div>
+                
+                <button 
+                    [disabled]="loginForm.invalid"
+                    *ngIf="!isLoading"
+                    mat-raised-button
+                    class="mx-auto"
+                >
+                    Iniciar Sesion
+                </button>
+    
+                <mat-spinner 
+                    *ngIf="isLoading"
+                    [diameter]="50"  
+                    class="my-4 mx-auto"  
+                >
+                </mat-spinner>
+    
+            </form>
+        </mat-card-content>
+    </mat-card>
+    
+
+</div>
+

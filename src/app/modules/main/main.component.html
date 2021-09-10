@@ -1,0 +1,40 @@
+<mat-sidenav-container class="w-full min-h-screen" autosize>
+
+  <mat-sidenav #main mode='side'>
+    <mat-list>
+      <mat-list-item>
+        Citas
+        <mat-icon>assignment_ind</mat-icon>
+      </mat-list-item>
+      <mat-list-item>
+        Tus Pacientes
+        <mat-icon>groups</mat-icon>
+      </mat-list-item>
+      <mat-list-item>
+        Configuraciones
+        <mat-icon>settings</mat-icon>
+      </mat-list-item>
+      <mat-list-item>
+        Cerrar sesión
+        <mat-icon>logout</mat-icon>
+      </mat-list-item>      
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar
+      class="bg-blue-500 h-16 flex flex-row justify-between items-center py-2 px-8 gap-4"
+    >
+      <button mat-icon-button class="text-white" (click)="main.toggle()">
+        <mat-icon class="text-3xl w-9 h-9">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="p-12 w-full min-h-full">
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
